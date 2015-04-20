@@ -1,4 +1,4 @@
-;;; myTerminal-controls.el --- Quick toggle controls at a key-stroke
+;;; myTerminal-controls.el --- Quick toggle controls at a key-stroke -*- lexical-binding: t; coding: utf-8; -*-
 
 ;; This file is not part of Emacs
 
@@ -65,8 +65,6 @@
 
 ;;; Code:
 
-;; -*- coding: utf-8; lexical-binding: t; -*-
-
 (require 'cl-lib)
 
 (defvar myTerminal-controls--controls-data
@@ -114,8 +112,7 @@
 
 (defun myTerminal-controls--apply-keyboard-bindings (pair)
   "Applies key-bindings with a wrapper"
-  (lexical-let ((func (nth 2
-                           pair)))
+  (let ((func (nth 2 pair)))
     (local-set-key (kbd (car pair))
                    (lambda ()
                      (interactive)
