@@ -74,6 +74,7 @@
 (defvar myterminal-controls--buffer-name
   " *myterminal-controls*")
 
+;;;###autoload
 (defun myterminal-controls-set-controls-data (data)
   "Sets details of controls required in the controls window"
   (setq myterminal-controls--controls-data
