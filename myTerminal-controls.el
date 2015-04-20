@@ -125,14 +125,14 @@
 
 (defun myTerminal-controls--display-controls-bindings (pair)
   "Display controls in the controls window"
-  (princ (concatenate 'string
-                      "["
-                      (nth 0 
-                           pair)
-                      "] - "
-                      (nth 1
-                           pair)
-                      "\n")
+  (princ (cl-concatenate 'string
+                         "["
+                         (nth 0 
+                              pair)
+                         "] - "
+                         (nth 1
+                              pair)
+                         "\n")
          (get-buffer-create myTerminal-controls--buffer-name)))
 
 (define-derived-mode myTerminal-controls-mode 
