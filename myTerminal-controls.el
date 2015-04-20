@@ -1,4 +1,4 @@
-;;; myTerminal-controls.el --- Quick toggle controls at a key-stroke
+;;; myTerminal-controls.el --- Quick toggle controls at a key-stroke -*- lexical-binding: t; coding: utf-8; -*-
 
 ;; This file is not part of Emacs
 
@@ -65,8 +65,6 @@
 
 ;;; Code:
 
-;; -*- coding: utf-8; lexical-binding: t; -*-
-
 (require 'cl-lib)
 
 (defvar myTerminal-controls--controls-data
@@ -88,13 +86,12 @@
 (defun myTerminal-controls-open-controls ()
   "Opens the controls window"
   (interactive)
-  (setq my-buffer
-        (get-buffer-create myTerminal-controls--buffer-name))
-  (setq my-window (split-window-vertically -20))
-  (set-window-buffer my-window
-                     my-buffer)
-  (other-window 1)
-  (myTerminal-controls--prepare-controls myTerminal-controls--controls-data))
+  (let ((my-buffer (get-buffer-create myTerminal-controls--buffer-name))
+        (my-window (split-window-vertically -20)))
+    (set-window-buffer my-window
+                       my-buffer)
+    (other-window 1)
+    (myTerminal-controls--prepare-controls myTerminal-controls--controls-data)))
 
 ;;;###autoload
 (defun myTerminal-controls-close-controls ()
@@ -115,8 +112,7 @@
 
 (defun myTerminal-controls--apply-keyboard-bindings (pair)
   "Applies key-bindings with a wrapper"
-  (lexical-let ((func (nth 2
-                           pair)))
+  (let ((func (nth 2 pair)))
     (local-set-key (kbd (car pair))
                    (lambda ()
                      (interactive)
@@ -126,14 +122,14 @@
 
 (defun myTerminal-controls--display-controls-bindings (pair)
   "Display controls in the controls window"
-  (princ (concatenate 'string
-                      "["
-                      (nth 0 
-                           pair)
-                      "] - "
-                      (nth 1
-                           pair)
-                      "\n")
+  (princ (cl-concatenate 'string
+                         "["
+                         (nth 0 
+                              pair)
+                         "] - "
+                         (nth 1
+                              pair)
+                         "\n")
          (get-buffer-create myTerminal-controls--buffer-name)))
 
 (define-derived-mode myTerminal-controls-mode 
