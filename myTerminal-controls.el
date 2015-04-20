@@ -88,13 +88,12 @@
 (defun myTerminal-controls-open-controls ()
   "Opens the controls window"
   (interactive)
-  (setq my-buffer
-        (get-buffer-create myTerminal-controls--buffer-name))
-  (setq my-window (split-window-vertically -20))
-  (set-window-buffer my-window
-                     my-buffer)
-  (other-window 1)
-  (myTerminal-controls--prepare-controls myTerminal-controls--controls-data))
+  (let ((my-buffer (get-buffer-create myTerminal-controls--buffer-name))
+        (my-window (split-window-vertically -20)))
+    (set-window-buffer my-window
+                       my-buffer)
+    (other-window 1)
+    (myTerminal-controls--prepare-controls myTerminal-controls--controls-data)))
 
 ;;;###autoload
 (defun myTerminal-controls-close-controls ()
