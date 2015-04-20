@@ -84,6 +84,7 @@
                                (myTerminal-controls-close-controls)))
                t))
 
+;;;###autoload
 (defun myTerminal-controls-open-controls ()
   "Opens the controls window"
   (interactive)
@@ -95,6 +96,7 @@
   (other-window 1)
   (myTerminal-controls--prepare-controls myTerminal-controls--controls-data))
 
+;;;###autoload
 (defun myTerminal-controls-close-controls ()
   "Closes the controls window"
   (interactive)
