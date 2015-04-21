@@ -8,7 +8,7 @@
 ;; Created: 2015/04/17
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Description: Quick toggle controls at a key-stroke
-;; URL: http://ismail.teamfluxion.com, http://www.teamfluxion.com
+;; URL: http://ismail.teamfluxion.com
 ;; Compatibility: Emacs24
 
 
