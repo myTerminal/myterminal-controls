@@ -1,4 +1,4 @@
-# myterminal-controls
+# myterminal-controls [![MELPA](http://melpa.org/packages/myterminal-controls-badge.svg)](http://melpa.org/#/myterminal-controls)
 
 Quick toggle controls at a key-stroke.
 
