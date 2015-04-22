@@ -4,7 +4,9 @@ Quick toggle controls at a key-stroke.
 
 You can use myterminal-controls to save a lot of key-bindings by grouping them into a single controls window. The controls window can be opened with a key-binding and the rest key-bindings are displayed within the controls window.
 
-## Usage
+## Installation
+
+### Manual
 
 Save the file *myterminal-controls.el* to disk and add the directory containing it to `load-path` using a command in your *.emacs* file like:
 
@@ -15,6 +17,14 @@ The above line assumes that you've placed the file into the Emacs directory '.em
 Start the package with:
 
     (require 'myterminal-controls)
+
+### MELPA
+
+If you have MELPA added as a repository to your Emacs, you can just install *myterminal-controls* with
+
+    M-x package-install myterminal-controls RET
+
+## Usage
 
 Set a key-binding to open the quick-toggle controls window anytime
 
