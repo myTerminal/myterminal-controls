@@ -89,7 +89,7 @@
   "Opens the controls window"
   (interactive)
   (let ((my-buffer (get-buffer-create myterminal-controls--buffer-name))
-        (my-window (split-window-vertically -20)))
+        (my-window (split-window-vertically (- (myterminal-controls--get-required-window-height)))))
     (set-window-buffer my-window
                        my-buffer)
     (other-window 1)
@@ -103,6 +103,16 @@
     (cond ((windowp my-window) (progn
                                  (delete-window my-window)
                                  (kill-buffer (get-buffer-create myterminal-controls--buffer-name)))))))
+
+(defun myterminal-controls--get-required-window-height ()
+  "Gets the approproate window height for controls"
+  (let ((half-window-height (/ (window-height)
+                               2))
+        (padded-controls-data-length (+ (length myterminal-controls--controls-data)
+                                        4)))
+    (cond ((< half-window-height
+              padded-controls-data-length) half-window-height)
+          (t padded-controls-data-length))))
 
 (defun myterminal-controls--prepare-controls (pairs)
   "Sets up the controls window"
