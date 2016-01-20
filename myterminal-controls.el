@@ -102,7 +102,8 @@
   (let ((my-window (get-buffer-window (get-buffer-create myterminal-controls--buffer-name))))
     (cond ((windowp my-window) (progn
                                  (delete-window my-window)
-                                 (kill-buffer (get-buffer-create myterminal-controls--buffer-name)))))))
+                                 (kill-buffer (get-buffer-create myterminal-controls--buffer-name))
+                                 (other-window -1))))))
 
 (defun myterminal-controls--get-required-window-height ()
   "Gets the approproate window height for controls"
