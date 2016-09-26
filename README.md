@@ -48,9 +48,3 @@ Each item in the list should contain three elements:
 * Key combination information
 * Text to be displayed in the controls window
 * Function to be executed against the key combination
-
-## Let me know
-
-Let me know your suggestions on improving *myterminal-controls* at ismail@teamfluxion.com
-
-Thank you!
