@@ -1,5 +1,6 @@
 # myterminal-controls
 
+[![MELPA-Stable](http://stable.melpa.org/packages/myterminal-controls-badge.svg)](http://stable.melpa.org/#/myterminal-controls)
 [![MELPA](http://melpa.org/packages/myterminal-controls-badge.svg)](http://melpa.org/#/myterminal-controls)
 [![Marmalade](https://img.shields.io/badge/marmalade-available-8A2A8B.svg)](https://marmalade-repo.org/packages/myterminal-controls)  
 [![License](https://img.shields.io/badge/LICENSE-GPL%20v3.0-blue.svg)](https://www.gnu.org/licenses/gpl.html)
@@ -23,9 +24,9 @@ Start the package with:
 
     (require 'myterminal-controls)
 
-### MELPA / Marmalade
+### MELPA-Stable / MELPA / Marmalade
 
-If you have MELPA or Marmalade added as a repository to your Emacs, you can just install *myterminal-controls* with
+If you have MELPA-Stable, MELPA or Marmalade added as a repository to your Emacs, you can just install *myterminal-controls* with
 
     M-x package-install myterminal-controls RET
 
