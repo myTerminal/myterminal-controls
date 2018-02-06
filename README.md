@@ -7,6 +7,8 @@
 
 Quick toggle controls at a key-stroke.
 
+![Demo](images/demo.gif)
+
 You can use myterminal-controls to save a lot of key-bindings by grouping them into a single controls window. The controls window can be opened with a key-binding and the rest key-bindings are displayed within the controls window.
 
 ## Installation
