@@ -81,8 +81,7 @@
   (setq myterminal-controls--controls-data
         data)
   (add-to-list 'myterminal-controls--controls-data
-               '("q" "Close" (lambda ()
-                               (myterminal-controls-close-controls)))
+               '("q" "Close" myterminal-controls-close-controls)
                t))
 
 ;;;###autoload
@@ -138,7 +137,7 @@
   "Display controls in the controls window"
   (princ (cl-concatenate 'string
                          "["
-                         (nth 0 
+                         (nth 0
                               pair)
                          "] - "
                          (nth 1
@@ -146,14 +145,14 @@
                          "\n")
          (get-buffer-create myterminal-controls--buffer-name)))
 
-(define-derived-mode myterminal-controls-mode 
-  special-mode 
+(define-derived-mode myterminal-controls-mode
+  special-mode
   "myterminal-controls"
   :abbrev-table nil
   :syntax-table nil
   nil)
 
-(myterminal-controls-set-controls-data 
+(myterminal-controls-set-controls-data
  (list '("1" "Toggle menu-bar" (lambda ()
                                  (cond (menu-bar-mode (menu-bar-mode -1))
                                        (t (menu-bar-mode t)))))
