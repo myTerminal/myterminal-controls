@@ -40,13 +40,17 @@ Set a key-binding to open the quick-toggle controls window anytime
 You can also set your custom list of quick-toggle controls
 
     (myterminal-controls-set-controls-data
-        (list '("1" "Invert colors" (lambda ()
-                                        (invert-face 'default)))
-              '("2" "Invert mode-line" (lambda ()
-                                           (invert-face 'mode-line)))))
+        (list '("1" "Invert colors"
+                (lambda ()
+                  (invert-face 'default))
+                t)
+              '("2" "Invert mode-line"
+                (lambda ()
+                  (invert-face 'mode-line)))))
 
-Each item in the list should contain three elements:
+Each item in the list should contain 3 to 4 elements:
 
 * Key combination information
 * Text to be displayed in the controls window
 * Function to be executed against the key combination
+* [Optional] Whether the controls window should close after the command

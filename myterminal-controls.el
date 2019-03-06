@@ -40,16 +40,20 @@
 ;; You can also set your custom list of quick-toggle controls
 ;;
 ;;     (myterminal-controls-set-controls-data
-;;         (list '("1" "Invert colors" (lambda ()
-;;                                         (invert-face 'default)))
-;;               '("2" "Invert mode-line" (lambda ()
-;;                                            (invert-face 'mode-line)))))
+;;         (list '("1" "Invert colors"
+;;                 (lambda ()
+;;                   (invert-face 'default))
+;;                 t)
+;;               '("2" "Invert mode-line"
+;;                 (lambda ()
+;;                   (invert-face 'mode-line)))))
 ;;
-;; Each item in the list should contain three elements:
+;; Each item in the list should contain 3 to 4 elements:
 ;;
 ;; * Key combination information
 ;; * Text to be displayed in the controls window
 ;; * Function to be executed against the key combination
+;; * [Optional] Whether the controls window should close after the command
 ;;
 
 ;;; Commentary:
@@ -81,7 +85,9 @@
   (setq myterminal-controls--controls-data
         data)
   (add-to-list 'myterminal-controls--controls-data
-               '("q" "Close" myterminal-controls-close-controls)
+               '("q" "Close"
+                 (lambda ())
+                 t)
                t))
 
 ;;;###autoload
@@ -131,7 +137,10 @@
                      (interactive)
                      (other-window -1)
                      (funcall func)
-                     (other-window 1)))))
+                     (other-window 1)
+                     (if (nth 3
+                              pair)
+                         (myterminal-controls-close-controls))))))
 
 (defun myterminal-controls--display-controls-bindings (pair)
   "Display controls in the controls window"
@@ -153,17 +162,22 @@
   nil)
 
 (myterminal-controls-set-controls-data
- (list '("1" "Toggle menu-bar" (lambda ()
-                                 (cond (menu-bar-mode (menu-bar-mode -1))
-                                       (t (menu-bar-mode t)))))
-       '("2" "Toggle tool-bar" (lambda ()
-                                 (cond (tool-bar-mode (tool-bar-mode -1))
-                                       (t (tool-bar-mode t)))))
-       '("3" "Toggle scroll-bar" (lambda ()
-                                   (cond (scroll-bar-mode (scroll-bar-mode -1))
-                                         (t (scroll-bar-mode t)))))
-       '("4" "Invert colors" (lambda ()
-                               (invert-face 'default)))))
+ (list '("1" "Toggle menu-bar"
+         (lambda ()
+           (cond (menu-bar-mode (menu-bar-mode -1))
+                 (t (menu-bar-mode t)))))
+       '("2" "Toggle tool-bar"
+         (lambda ()
+           (cond (tool-bar-mode (tool-bar-mode -1))
+                 (t (tool-bar-mode t)))))
+       '("3" "Toggle scroll-bar"
+         (lambda ()
+           (cond (scroll-bar-mode (scroll-bar-mode -1))
+                 (t (scroll-bar-mode t)))))
+       '("4" "Invert colors"
+         (lambda ()
+           (invert-face 'default))
+         t)))
 
 (provide 'myterminal-controls)
 
