@@ -1,4 +1,4 @@
-;;; myterminal-controls.el --- Quick toggle controls at a key-stroke -*- lexical-binding: t; coding: utf-8; -*-
+;;; myterminal-controls.el --- Quick toggle controls at a key-stroke -*- lexical-binding: t; -*-
 
 ;; This file is not part of Emacs
 
