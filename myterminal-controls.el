@@ -7,7 +7,7 @@
 ;; Keywords: convenience, shortcuts
 ;; Maintainer: Mohammed Ismail Ansari <team.terminal@gmail.com>
 ;; Created: 2015/04/17
-;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
+;; Package-Requires: ((emacs "24"))
 ;; Description: Quick toggle controls at a key-stroke
 ;; URL: http://ismail.teamfluxion.com
 ;; Compatibility: Emacs24
@@ -70,8 +70,6 @@
 ;;
 
 ;;; Code:
-
-(require 'cl-lib)
 
 (defvar myterminal-controls--controls-data
   nil)
@@ -144,14 +142,13 @@
 
 (defun myterminal-controls--display-controls-bindings (pair)
   "Display controls in the controls window"
-  (princ (cl-concatenate 'string
-                         "["
-                         (nth 0
-                              pair)
-                         "] - "
-                         (nth 1
-                              pair)
-                         "\n")
+  (princ (concat "["
+                 (nth 0
+                      pair)
+                 "] - "
+                 (nth 1
+                      pair)
+                 "\n")
          (get-buffer-create myterminal-controls--buffer-name)))
 
 (define-derived-mode myterminal-controls-mode
