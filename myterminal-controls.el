@@ -7,7 +7,7 @@
 ;; Keywords: convenience, shortcuts
 ;; Maintainer: Mohammed Ismail Ansari <team.terminal@gmail.com>
 ;; Created: 2015/04/17
-;; Package-Requires: ((emacs "24") (cl-lib "0.5")))
+;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Description: Quick toggle controls at a key-stroke
 ;; URL: http://ismail.teamfluxion.com
 ;; Compatibility: Emacs24
